@@ -1,6 +1,6 @@
 # SYNOPSIS
 
-nonetexect *cmd* *...*
+nonetexec *cmd* *...*
 
 # DESCRIPTION
 
