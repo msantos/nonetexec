@@ -33,6 +33,7 @@ endif
 RM ?= rm
 
 NONETEXEC_CFLAGS ?= -g -Wall -fwrapv -pedantic -pie -fPIE
+NONETEXEC_CFLAGS ?= -g -Wall -Wextra -fwrapv -pedantic -pie -fPIE
 
 CFLAGS += $(NONETEXEC_CFLAGS) \
           -DNONETEXEC=\"$(NONETEXEC)\" \

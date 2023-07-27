@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
   }
 
   if (restrict_process() < 0)
-    err(111, "nosockexec");
+    err(111, "nonetexec");
 
   (void)execvp(argv[0], argv);
 
