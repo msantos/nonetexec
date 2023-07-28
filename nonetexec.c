@@ -21,7 +21,7 @@
 
 #include "restrict_process.h"
 
-#define NOSOCKEXEC_VERSION "0.1.0"
+#define NONETEXEC_VERSION "0.2.0"
 
 static void usage();
 
@@ -36,6 +36,7 @@ int main(int argc, char *argv[]) {
     case 'h':
     default:
       usage();
+      exit(2);
     }
   }
 
@@ -44,10 +45,11 @@ int main(int argc, char *argv[]) {
 
   if (argc < 1) {
     usage();
+    exit(2);
   }
 
   if (restrict_process() < 0)
-    err(111, "nonetexec");
+    err(EXIT_FAILURE, "nonetexec");
 
   (void)execvp(argv[0], argv);
 
@@ -55,9 +57,9 @@ int main(int argc, char *argv[]) {
 }
 
 static void usage() {
-  errx(EXIT_FAILURE,
-       "[OPTION] <COMMAND> <...>\n"
-       "version: %s (%s)\n"
-       "-h, --help                usage summary",
-       NOSOCKEXEC_VERSION, RESTRICT_PROCESS);
+  (void)fprintf(stderr,
+                "[OPTION] <COMMAND> <...>\n"
+                "version: %s (%s)\n"
+                "-h, --help                usage summary\n",
+                NONETEXEC_VERSION, RESTRICT_PROCESS);
 }
