@@ -21,7 +21,7 @@
 
 #include "restrict_process.h"
 
-#define NONETEXEC_VERSION "0.2.0"
+#define NONETEXEC_VERSION "0.2.1"
 
 static void usage();
 
@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
 
   (void)execvp(argv[0], argv);
 
-  err(127, "%s", argv[0]);
+  err(errno == ENOENT ? 127 : 126, "%s", argv[0]);
 }
 
 static void usage() {
