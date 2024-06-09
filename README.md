@@ -21,20 +21,10 @@ The process may still access the network by using:
 
 # EXAMPLES
 
-The examples demonstrate running a restricted process under
-[tcpexec](https://github.com/msantos/tcpexec).
-
 ## curl(1): process does not access network
 
 ```
-# shell 1
-$ tcpexec 0.0.0.0:9091 nonetexec curl file:///etc/hosts; echo $?
-0
-
-# shell 2
-$ echo | nc localhost 9091
-127.0.0.1 localhost
-
+$ nonetexec curl file:///etc/hosts
 # The following lines are desirable for IPv6 capable hosts
 ::1 ip6-localhost ip6-loopback
 fe00::0 ip6-localnet
@@ -47,13 +37,8 @@ ff02::3 ip6-allhosts
 ## curl(1): process attempts to access network
 
 ```
-# shell 1
-$ tcpexec 0.0.0.0:9091 nonetexec curl http://1.1.1.1; echo $?
+$ nonetexec curl http://1.1.1.1
 curl: (7) Couldn't connect to server
-7
-
-# shell 2
-$ echo | nc localhost 9091
 ```
 
 # Build
