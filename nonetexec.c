@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
   }
 
   if (restrict_process() < 0)
-    err(EXIT_FAILURE, "nonetexec");
+    err(111, "nonetexec");
 
   (void)execvp(argv[0], argv);
 
