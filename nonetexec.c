@@ -21,7 +21,7 @@
 
 #include "restrict_process.h"
 
-#define NONETEXEC_VERSION "0.2.1"
+#define NONETEXEC_VERSION "0.3.0"
 
 static void usage();
 
