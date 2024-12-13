@@ -41,6 +41,20 @@ $ nonetexec curl http://1.1.1.1
 curl: (7) Couldn't connect to server
 ```
 
+## Network socket attached to stdin/stdout
+
+Uses [tcpexec](https://github.com/msantos/tcpexec):
+
+```
+$ tcpexec :8080 nonetexec cat
+```
+
+```
+$ nc localhost 8080
+test
+test
+```
+
 # Build
 
 ```
