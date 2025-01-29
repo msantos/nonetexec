@@ -1,4 +1,4 @@
-/* Copyright (c) 2023-2024, Michael Santos <michael.santos@gmail.com>
+/* Copyright (c) 2023-2025, Michael Santos <michael.santos@gmail.com>
  *
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -23,7 +23,7 @@
 
 #define NONETEXEC_VERSION "0.3.0"
 
-static void usage();
+static void usage(void);
 
 static const struct option long_options[] = {{"help", no_argument, NULL, 'h'},
                                              {NULL, 0, NULL, 0}};
@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
   err(errno == ENOENT ? 127 : 126, "%s", argv[0]);
 }
 
-static void usage() {
+static void usage(void) {
   (void)fprintf(stderr,
                 "[OPTION] <COMMAND> <...>\n"
                 "version: %s (%s)\n"
